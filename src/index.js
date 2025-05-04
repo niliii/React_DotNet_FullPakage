@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import Student from "./Student";
 import Header from "./Header";
 import Mainbody from './MainBody';
+import Counter from './Counter';
 
 
 // import reportWebVitals from './reportWebVitals';
@@ -19,7 +20,9 @@ function Footer() {
 root.render(
   <div>
     <Header />
+
     <Mainbody/>
+    <Counter/>
     <Footer />
   </div>
 );

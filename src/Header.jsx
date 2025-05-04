@@ -14,6 +14,7 @@ export default function Header() {
       <Row className="text-center">
         <Col>
           <MainHeader />
+       
           <SubHeader />
         </Col>
       </Row>
