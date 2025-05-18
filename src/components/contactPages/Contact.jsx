@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function Contact() {
+const Contact=(props) =>{
   return (
     <div>
-         <button className='btn btn-secondary form-control'>Contact</button>
+         <button className='btn btn-secondary form-control'>
+          
+          {props.Contact.name}
+         </button>
     </div>
   )
 }
+export default Contact

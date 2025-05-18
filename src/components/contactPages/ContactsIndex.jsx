@@ -1,17 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Layout/Header";
 import AddRandomComponents from "./AddRandomComponents";
 import RemoveAllContact from "./RemoveAllContact";
 import AddContact from "./AddContact";
 import FavoriteContacts from "./FavoriteContacts";
 import GenerallContacts from "./GenerallContacts";
-import Footer from "../Layout/Footer"
+import Footer from "../Layout/Footer";
 
 export default function ContactsIndex() {
-    const contactListe=[
-        id:1; 
+ // const [name, setname] = useState("1");
 
-    ];
+  const contactListe = {
+     name: "Ali" ,
+     email: "johndoe@gmail.com" ,
+     phone: "1234588888" ,
+     favorite: false ,
+  };
+
+  //  {  "contact2":{
+  //     id:2,
+  //     name:"sebastien Doe",
+  //     email:"sebastien@gmail.com",
+  //     phone:"12349999",
+  //     favorite:false
+
+  //   ,},
+  // {   "contact3":{
+  //     id:3,
+  //     name:"sara Doe",
+  //     email:"sara@gmail.com",
+  //     phone:"1234567777",
+  //     favorite:false
+
+  //   }}
+
   return (
     <div>
       <Header />
@@ -24,21 +46,17 @@ export default function ContactsIndex() {
             <RemoveAllContact />
           </div>
           <div className="row py-2">
-            <AddContact/>
-
+            <AddContact />
           </div>
-           <div className="row py-2">
-            <FavoriteContacts/>
-
+          <div className="row py-2">
+            <FavoriteContacts contactListe={['Ali']} />
           </div>
-           <div className="row py-2">
-            <GenerallContacts/>
-
+          <div className="row py-2">
+            <GenerallContacts onclick={contactListe} />
           </div>
-          
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

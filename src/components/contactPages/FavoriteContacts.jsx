@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import Contact from "./Contact"
 
-export default function FavoriteContacts() {
+const FavoriteContacts = (props) => {
+  const contacts = props.contacts || [];
+
   return (
     <div>
-         <button className='btn btn-secondary form-control'>Favorite Contacts </button>
+      {contacts.map((contact, index) => (
+        <Contact contact={contact} key={index} />
+      ))}
     </div>
-  )
-}
+  );
+};
+
+
+export default FavoriteContacts;
