@@ -1,17 +1,15 @@
-import React from "react";
-import Contact from "./Contact"
-
+import Contact from "./Contact";
 const FavoriteContacts = (props) => {
-  const contacts = props.contacts || [];
+  const contactListe = props.contactListe || [];
 
   return (
     <div>
-      {contacts.map((contact, index) => (
+    
+      {contactListe.map((contact, index) => (
         <Contact contact={contact} key={index} />
       ))}
     </div>
   );
 };
-
 
 export default FavoriteContacts;

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function AddContact() {
+  const[errorMesage,seterrorMesage]=useState();
+  const [successMessage,setSuccessMesage]=useState()
   return (
     <div className="border row  text-white p-2">
       <div className="col-12 text-white-50">Add Nee Contact</div>
