@@ -4,33 +4,45 @@ import akhbar from "../../images/akhbar.png";
 const Contact = ({ contact }) => {
   return (
     <div
-      className="row p-md-2 mb-2"
-      style={{ borderRadius: "20px", border: "1px solid #555 " }}
+      className="row align-items-center p-2 mb-2"
+      style={{ borderRadius: "20px", border: "1px solid #555" }}
     >
-      <div className="col-2 col-md-1 pt-2 pt-md-1">
-        <img src={akhbar} alt="" style={{ width: "100px" }} />
+      <div className="col-2 col-md-1">
+        <img src={akhbar} alt="" style={{ width: "60px" }} />
       </div>
-      <button className="btn btn-secondary form-control">
-        {/* <h5>{contact.name}</h5>
-          <h3>{contact.email}</h3> */}
-        <div className="col-6 col-md-5 text-warning pt-0">
-          <span className="h4">{contact.name}</span>
+
+      <div className="col-6 col-md-5 text-warning">
+        <span className="h5">{contact.name}</span>
+        <div className="text-white-50">
+          {contact.email}
           <br />
-          <div className="text-white-50 ">
-            {contact.email}
-            <br />
-            {contact.phone}
-          </div>
+          {contact.phone}
         </div>
-        <div className="col-6 col-md-5 text-warning pt-0">
-          <button className={`btn btn-sm m-1 ${
-            contact.isFaverite? "btn-warning":"btn-outline-warning"
-          }`}>
-            <i class="bi bi-star" style={{fontSize:"1rem"}}></i>
-          </button>
-        </div>
-      </button>
+      </div>
+
+      <div className="col-1 text-center">
+        <button
+          className={`btn btn-sm ${
+            contact.isFaverite ? "btn-warning" : "btn-outline-warning"
+          }`}
+        >
+          <i className="bi bi-star" style={{ fontSize: "1rem" }}></i>
+        </button>
+      </div>
+
+      <div className="col-1 text-center">
+        <button className="btn btn-sm btn-primary">
+          <i className="bi bi-pencil" style={{ fontSize: "1rem" }}></i>
+        </button>
+      </div>
+
+      <div className="col-1 text-center">
+        <button className="btn btn-sm btn-danger">
+          <i className="bi bi-trash-fill" style={{ fontSize: "1rem" }}></i>
+        </button>
+      </div>
     </div>
   );
 };
+
 export default Contact;

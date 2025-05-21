@@ -3,11 +3,13 @@ const FavoriteContacts = (props) => {
   const contactListe = props.contactListe || [];
 
   return (
-    <div>
-    
-      {contactListe.map((contact, index) => (
-        <Contact contact={contact} key={index} />
-      ))}
+    <div className="col-12 py-2">
+      <div className="text-center text-black">favorite</div>
+      <div >
+        {contactListe.map((contact, index) => (
+          <Contact contact={contact} key={index} />
+        ))}
+      </div>
     </div>
   );
 };

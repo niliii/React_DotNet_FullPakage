@@ -8,27 +8,25 @@ import GenerallContacts from "./GenerallContacts";
 import Footer from "../Layout/Footer";
 
 export default function ContactsIndex() {
- // const [name, setname] = useState("1");
+  // const [name, setname] = useState("1");
 
-const contactListe = [
-  {
-    name: "Ali",
-    email: "johndoe@gmail.com",
-    phone: "1234588888",
-    favorite: false,
-  },
-  {
-     name: "reza" ,
-     email: "rezae@gmail.com" ,
-     phone: "1234599999" ,
-     favorite: true ,
+  const contactListe = [
+    {
+      name: "Ali",
+      email: "johndoe@gmail.com",
+      phone: "1234588888",
+      favorite: false,
+    },
+    {
+      name: "reza",
+      email: "rezae@gmail.com",
+      phone: "1234599999",
+      favorite: true,
+    },
+  ];
+  function handelAddContact(newcontact) {
+    alert("hello");
   }
-];
-function handelAddContact(newcontact){
-  alert("hello")
-}
-
-
 
   return (
     <div>
@@ -42,18 +40,24 @@ function handelAddContact(newcontact){
             <RemoveAllContact />
           </div>
           <div className="row py-2">
-            <AddContact handelAddContact={handelAddContact}/>
+            <div className="col-8 offset-2 row">
+            <AddContact handelAddContact={handelAddContact} />
+            </div>
           </div>
           <div className="row py-2">
+            <div className="col-8 offset-2 row">
+
             <FavoriteContacts contactListe={contactListe} />
+            </div>
           </div>
           <div className="row py-2">
+            <div className="col-8 offset-2 row">
             <GenerallContacts onclick={contactListe} />
+            </div> 
           </div>
         </div>
       </div>
       <Footer />
     </div>
   );
-
 }

@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import Contact from "./Contact";
 
-export default function GenerallContacts() {
+const GeneralContacts = ({ contacts }) => {
+  const contactList = contacts || [];
+
   return (
-    <div>
-         <button className='btn btn-secondary form-control'>General Contact</button>
+    <div className="col-12 py-2">
+      <div className="text-center text-white">General Contacts</div>
+      <div className="row">
+        {contactList.map((contact, index) => (
+          <Contact contact={contact} key={index} />
+        ))}
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default GeneralContacts;
