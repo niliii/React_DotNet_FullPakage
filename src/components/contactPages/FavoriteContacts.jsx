@@ -1,13 +1,18 @@
 import Contact from "./Contact";
-const FavoriteContacts = (props) => {
-  const contactListe = props.contactListe || [];
+
+const FavoriteContacts = ({ contacts, favoriteClick }) => {
+  const favoriteContacts = contacts.filter((contact) => contact.favorite === true);
 
   return (
     <div className="col-12 py-2">
-      <div className="text-center text-black">favorite</div>
-      <div >
-        {contactListe.map((contact, index) => (
-          <Contact contact={contact} key={index} />
+      <div className="text-center text-black">Favorite Contacts</div>
+      <div>
+        {favoriteContacts.map((contact, index) => (
+          <Contact
+            contact={contact}
+            key={index}
+            favoriteClick={favoriteClick}
+          />
         ))}
       </div>
     </div>

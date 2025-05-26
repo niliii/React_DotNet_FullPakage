@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, setState } from "react";
 import Header from "../Layout/Header";
 import AddRandomComponents from "./AddRandomComponents";
 import RemoveAllContact from "./RemoveAllContact";
@@ -26,14 +26,10 @@ export default function ContactsIndex() {
   ]);
 
   const handleAddContact = (newContact) => {
-    if (newContact.name === "") {
-      return { status: "failure", msg: "plz enter a valid name" };
-    } else if (newContact.phone === "") {
-      return { status: "failure", msg: "plz enter a valid number" };
-    }
+ 
 
     const duplicateRecord = contactListe.filter((x) => {
-      if (x.name ===~ newContact.name && x.phone === newContact.phone) {
+      if (x.name === newContact.name && x.phone === newContact.phone) {
         return true;
       }
     });
@@ -53,10 +49,21 @@ export default function ContactsIndex() {
     }
   };
 
+const handleToggelFavorite = (contact) => {
+  setContactListe((prevContacts) =>
+    prevContacts.map((obj) => {
+      if (obj.id === contact.id) {
+        return { ...obj, favorite: !obj.favorite };
+      }
+      return obj;
+    })
+  );
+};
+
   return (
     <div>
       <Header />
-      <div className="container" style={{ minHeight: "85vh" }}>
+      <div className="container" style={{ minHeight: "85vh", overflow: "auto" }}>
         <div className="row py-3">
           <div className="col-4 offset-2">
             <AddRandomComponents />
@@ -73,13 +80,19 @@ export default function ContactsIndex() {
 
           <div className="row py-2">
             <div className="col-8 offset-2 row">
-              <FavoriteContacts contacts={contactListe} />
+              <FavoriteContacts
+                contacts={contactListe}
+                favoriteClick={handleToggelFavorite}
+              />
             </div>
           </div>
 
           <div className="row py-2">
             <div className="col-8 offset-2 row">
-              <GenerallContacts contacts={contactListe} />
+              <GenerallContacts
+                contacts={contactListe}
+                favoriteClick={handleToggelFavorite}
+              />
             </div>
           </div>
         </div>

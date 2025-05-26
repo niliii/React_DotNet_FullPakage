@@ -1,7 +1,8 @@
 import React from "react";
 import akhbar from "../../images/akhbar.png";
-
-const Contact = ({ contact }) => {
+import { useState } from "react";
+const Contact = ({ contact, favoriteClick,props }) => {
+ // const [favoriteClick, setfavoriteClick]=useState("")
   return (
     <div
       className="row align-items-center p-2 mb-2"
@@ -25,6 +26,7 @@ const Contact = ({ contact }) => {
           className={`btn btn-sm ${
             contact.isFaverite ? "btn-warning" : "btn-outline-warning"
           }`}
+          onClick={ ()=>favoriteClick(contact)}
         >
           <i className="bi bi-star" style={{ fontSize: "1rem" }}></i>
         </button>

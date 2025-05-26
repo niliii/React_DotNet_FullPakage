@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const AddContact = ({ handleAddContact }) => {
-   const [  , setErrorMessage] = useState(undefined);
+  const [errorMessage, setErrorMessage] = useState(undefined);
   const [successMessage, setSuccessMessage] = useState(undefined);
   const handleAddContactFormSubmit = (props) => {
     props.preventDefault();
@@ -9,21 +9,24 @@ const AddContact = ({ handleAddContact }) => {
     const name = props.target.elements.contactName.value.trim();
     const email = props.target.elements.contactEmail.value.trim();
     const phone = props.target.elements.contactPhone.value.trim();
-    
+
     const newContact = {
       name,
       email,
       phone,
     };
-     const response= handleAddContact(newContact);
-   
-    if (response.status==="success"){
-       setSuccessMessage(response.msg)
-      document.querySelector(".contact-form").reset()
-      }else{
-      setErrorMessage(response.msg)
-          }
-  }
+    const response = handleAddContact(newContact);
+
+    if (response.status === "success") {
+      setSuccessMessage(response.msg);
+      setErrorMessage(undefined);
+
+      props.target.reset();
+    } else {
+      setErrorMessage(response.msg);
+      setSuccessMessage(undefined);
+    }
+  };
   return (
     <div className="border col-12 text-white p-2">
       <form onSubmit={handleAddContactFormSubmit} className="contact-form">
@@ -53,26 +56,32 @@ const AddContact = ({ handleAddContact }) => {
               name="contactPhone"
             />
           </div>
-          {setErrorMessage==undefined?(<div> </div>):
-       (   <div className="col-12 text-center text-denger">
-            {setErrorMessage}
-             </div>)}
-              {setSuccessMessage==undefined?(<div> </div>):
-          (<div className="col-12 text-center text-Success">
-            {setSuccessMessage }
-             </div>)}
-             
-          
-          
+          {setErrorMessage === undefined ? (
+            <div> </div>
+          ) : (
+            <div className="col-12 text-center text-denger">
+              {setErrorMessage}
+            </div>
+          )}
+          {setSuccessMessage === undefined ? (
+            <div> </div>
+          ) : (
+            <div className="col-12 text-center text-Success">
+              {setSuccessMessage}
+            </div>
+          )}
+
           <div className="col-12 col-md-6 offset-md-3 p-1">
-            <button className="btn btn-primary btn-sm form-control">Create</button>
+            <button className="btn btn-primary btn-sm form-control">
+              Create
+            </button>
           </div>
         </div>
         {successMessage && (
           <div className="alert alert-success mt-2">{successMessage}</div>
         )}
         {setErrorMessage && (
-          <div className="alert alert-danger mt-2">{setErrorMessage}</div>
+          <div className="alert alert-danger mt-2">{errorMessage}</div>
         )}
       </form>
     </div>
