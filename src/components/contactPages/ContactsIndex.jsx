@@ -26,8 +26,6 @@ export default function ContactsIndex() {
   ]);
 
   const handleAddContact = (newContact) => {
- 
-
     const duplicateRecord = contactListe.filter((x) => {
       if (x.name === newContact.name && x.phone === newContact.phone) {
         return true;
@@ -49,26 +47,47 @@ export default function ContactsIndex() {
     }
   };
 
-const handleToggelFavorite = (contact) => {
-  setContactListe((prevContacts) =>
-    prevContacts.map((obj) => {
-      if (obj.id === contact.id) {
-        return { ...obj, favorite: !obj.favorite };
-      }
-      return obj;
-    })
-  );
-};
+  const handleToggelFavorite = (contact) => {
+    setContactListe((prevContacts) =>
+      prevContacts.map((obj) => {
+        if (obj.id === contact.id) {
+          return { ...obj, favorite: !obj.favorite };
+        }
+        return obj;
+      })
+    );
+  };
 
+  const handleDeleteContact = (contactId) => {
+    setContactListe((prevContacts) =>
+      prevContacts.filter((obj) => obj.id !== contactId)
+    );
+  };
+  const handleAddRandomContact = (newContact) => {
+    const newFinalContact = {
+      ...newContact,
+      id:
+        contactListe.length > 0
+          ? contactListe[contactListe.length - 1].id + 1
+          : 1,
+      favorite: false,
+    };
+    setContactListe((prevContacts) => [...prevContacts, newFinalContact]);
+  };
   return (
     <div>
       <Header />
-      <div className="container" style={{ minHeight: "85vh", overflow: "auto" }}>
+      <div
+        className="container"
+        style={{ minHeight: "85vh", overflow: "auto" }}
+      >
         <div className="row py-3">
-          <div className="col-4 offset-2">
-            <AddRandomComponents />
+          <div className="col-4 offset-2 row">
+            <AddRandomComponents
+              handleAddRandomContact={handleAddRandomContact}
+            />
           </div>
-          <div className="col-4">
+          <div className="col-4 row">
             <RemoveAllContact />
           </div>
 
@@ -83,6 +102,7 @@ const handleToggelFavorite = (contact) => {
               <FavoriteContacts
                 contacts={contactListe}
                 favoriteClick={handleToggelFavorite}
+                handleDeleteContact={handleDeleteContact}
               />
             </div>
           </div>
@@ -92,6 +112,7 @@ const handleToggelFavorite = (contact) => {
               <GenerallContacts
                 contacts={contactListe}
                 favoriteClick={handleToggelFavorite}
+                handleDeleteContact={handleDeleteContact}
               />
             </div>
           </div>

@@ -1,8 +1,8 @@
 import React from "react";
 import akhbar from "../../images/akhbar.png";
 import { useState } from "react";
-const Contact = ({ contact, favoriteClick,props }) => {
- // const [favoriteClick, setfavoriteClick]=useState("")
+const Contact = ({ contact, favoriteClick, props, deleteContact }) => {
+  // const [favoriteClick, setfavoriteClick]=useState("")
   return (
     <div
       className="row align-items-center p-2 mb-2"
@@ -26,7 +26,7 @@ const Contact = ({ contact, favoriteClick,props }) => {
           className={`btn btn-sm ${
             contact.isFaverite ? "btn-warning" : "btn-outline-warning"
           }`}
-          onClick={ ()=>favoriteClick(contact)}
+          onClick={() => favoriteClick(contact)}
         >
           <i className="bi bi-star" style={{ fontSize: "1rem" }}></i>
         </button>
@@ -39,8 +39,16 @@ const Contact = ({ contact, favoriteClick,props }) => {
       </div>
 
       <div className="col-1 text-center">
-        <button className="btn btn-sm btn-danger">
-          <i className="bi bi-trash-fill" style={{ fontSize: "1rem" }}></i>
+        <button
+          className={`btn btn-sm btn-danger ${
+            contact.isDelete ? "btn-danger " : "btn-outline-warning"
+          }`}
+        >
+          <i
+            className="bi bi-trash-fill"
+            style={{ fontSize: "1rem" }}
+            onClick={() => deleteContact(contact.id)}
+          ></i>
         </button>
       </div>
     </div>

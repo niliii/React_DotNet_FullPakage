@@ -56,7 +56,7 @@ const AddContact = ({ handleAddContact }) => {
               name="contactPhone"
             />
           </div>
-          {setErrorMessage === undefined ? (
+          {/* {setErrorMessage === undefined ? (
             <div> </div>
           ) : (
             <div className="col-12 text-center text-denger">
@@ -69,7 +69,7 @@ const AddContact = ({ handleAddContact }) => {
             <div className="col-12 text-center text-Success">
               {setSuccessMessage}
             </div>
-          )}
+          )} */}
 
           <div className="col-12 col-md-6 offset-md-3 p-1">
             <button className="btn btn-primary btn-sm form-control">
