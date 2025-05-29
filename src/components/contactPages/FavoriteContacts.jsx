@@ -1,6 +1,6 @@
 import Contact from "./Contact";
 
-const FavoriteContacts = ({ contacts, favoriteClick,handleDeleteContact }) => {
+const FavoriteContacts = ({ contacts, favoriteClick,handleDeleteContact,handelUpdateClick }) => {
   const favoriteContacts = contacts.filter((contact) => contact.favorite === true);
 
   return (
@@ -13,6 +13,7 @@ const FavoriteContacts = ({ contacts, favoriteClick,handleDeleteContact }) => {
             key={index}
             favoriteClick={favoriteClick}
             deleteContact={handleDeleteContact}
+            updateClick={handelUpdateClick}
           />
         ))}
       </div>

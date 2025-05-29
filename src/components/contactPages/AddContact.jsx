@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-const AddContact = ({ handleAddContact }) => {
+import Contact from "./Contact";
+const AddContact = ({ handleAddContact ,isUpdating, selectedContact}) => {
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [successMessage, setSuccessMessage] = useState(undefined);
   const handleAddContactFormSubmit = (props) => {
@@ -31,13 +31,16 @@ const AddContact = ({ handleAddContact }) => {
     <div className="border col-12 text-white p-2">
       <form onSubmit={handleAddContactFormSubmit} className="contact-form">
         <div className="row p-2">
-          <div className="col-12 text-black">Add New Contact</div>
+          <div className="col-12 text-black">
+            {isUpdating ? "Update Contact" : "Add New Contact"}
+          </div>
           <div className="col-12 col-md-4 p-1">
             <input
               type="text"
               className="form-control form-control-sm"
               placeholder="Name..."
               name="contactName"
+              defaultValue={selectedContact?.name || ""}
             />
           </div>
           <div className="col-12 col-md-4 p-1">
@@ -46,6 +49,7 @@ const AddContact = ({ handleAddContact }) => {
               className="form-control form-control-sm"
               placeholder="Email..."
               name="contactEmail"
+              defaultValue={selectedContact?.email || ""}
             />
           </div>
           <div className="col-12 col-md-4 p-1">
@@ -54,6 +58,7 @@ const AddContact = ({ handleAddContact }) => {
               className="form-control form-control-sm"
               placeholder="Phone..."
               name="contactPhone"
+              defaultValue={selectedContact?.phone || ""}
             />
           </div>
           {/* {setErrorMessage === undefined ? (
@@ -71,11 +76,11 @@ const AddContact = ({ handleAddContact }) => {
             </div>
           )} */}
 
-          <div className="col-12 col-md-6 offset-md-3 p-1">
-            <button className="btn btn-primary btn-sm form-control">
-              Create
-            </button>
-          </div>
+           <div className="col-md-6 offset-md-3 p-1">
+          <button className="btn btn-primary form-control" type="submit">
+            {isUpdating ? "Update" : "Create"}
+          </button>
+        </div>
         </div>
         {successMessage && (
           <div className="alert alert-success mt-2">{successMessage}</div>

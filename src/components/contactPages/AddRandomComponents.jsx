@@ -5,8 +5,8 @@ export default function AddRandomComponents(props) {
   const GetRandomContacts = async () => {
     const responseFormAPI = await getRandomUser();
 
-    console.log(responseFormAPI); // لاگ برای بررسی
-    const user = responseFormAPI.data.results[0]; // ✅ دسترسی صحیح به داده
+    console.log(responseFormAPI);
+    const user = responseFormAPI.data.results[0];
 
     const newContact = {
       name: `${user.name.first} ${user.name.last}`,
@@ -23,7 +23,7 @@ export default function AddRandomComponents(props) {
         className="btn btn-success form-control"
         onClick={GetRandomContacts}
       >
-        افزودن مخاطب تصادفی
+        Add Random Contact
       </button>
     </div>
   );

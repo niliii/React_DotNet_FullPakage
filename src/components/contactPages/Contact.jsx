@@ -1,7 +1,13 @@
 import React from "react";
 import akhbar from "../../images/akhbar.png";
 import { useState } from "react";
-const Contact = ({ contact, favoriteClick, props, deleteContact }) => {
+const Contact = ({
+  contact,
+  favoriteClick,
+  props,
+  deleteContact,
+  updateClick,
+}) => {
   // const [favoriteClick, setfavoriteClick]=useState("")
   return (
     <div
@@ -34,7 +40,11 @@ const Contact = ({ contact, favoriteClick, props, deleteContact }) => {
 
       <div className="col-1 text-center">
         <button className="btn btn-sm btn-primary">
-          <i className="bi bi-pencil" style={{ fontSize: "1rem" }}></i>
+          <i
+            className="bi bi-pencil"
+            style={{ fontSize: "1rem" }}
+            onClick={() => updateClick(contact)}
+          ></i>
         </button>
       </div>
 
