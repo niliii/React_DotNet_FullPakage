@@ -161,14 +161,14 @@ export default function ContactsIndex(
         className="row text-black"
         style={{ minHeight: "85vh", overflow: "auto" }}
       >
-        <div className="col-6">
+        {/* <div className="col-6">
           <span className="h1 text-warning text-center">class components</span>
           <Exercis
             componentdidmount={componentdidmount}
             componentdidupdate={componentdidupdate}
             componentwillunmount={componentwillunmount}
           />
-        </div>
+        </div> */}
         {/* <div className="row py-3">
           <div className="col-4 offset-2 row">
             <AddRandomComponents
