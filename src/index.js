@@ -41,7 +41,7 @@ root.render(
             <Route index element={<ProudactList />} />
             <Route path="creat" element={<CreatProudact />} />
             <Route path="list" element={<ProudactList />} />
-            <Route path="deteails" element={<ProductDeteails />} />
+            <Route path="deteails/:productId" element={<ProductDeteails />} />
           </Route>
         </Route>
         <Route path="*" element={<NotFound />} />

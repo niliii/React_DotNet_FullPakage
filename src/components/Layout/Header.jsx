@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../../images/logo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -23,53 +23,74 @@ export default function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
-                خانه
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">
-                درباره ما
-              </Link>
-            </li>
-            <li className="nav-item dropdown">
-              <Link
-                className="nav-link dropdown-toggle"
-                to="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="true"
-              >
-                محصولات
-              </Link>
-              <ul className="dropdown-menu">
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+            <NavLink
+              to=""
+              className={({ isActive }) =>
+                isActive ? "nav-link active text-danger" : "nav-link"
+              }
+            >
+              خانه
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive ? "nav-link active text-danger" : "nav-link"
+              }
+            >
+              درباره ما
+            </NavLink>
+          </li>
+           <li className="nav-item">
+            <NavLink
+              to="/CryptoDetail/BTC"
+              className="nav-link "
+            >
+              CryptoDetail
+            </NavLink>
+          </li>
+          <li className="nav-item dropdown">
+            <NavLink
+              className="nav-link dropdown-toggle"
+              to="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              محصولات
+            </NavLink>
+            <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" to="/Proudact/creat">
-                    افزودن محصول
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/Proudact/list">
-                    لیست محصولات
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/Proudact/deteails">
-                    جزئیات محصول
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link disabled" aria-disabled="true">
-                غیرفعال
-              </span>
-            </li>
-          </ul>
-        </div>
+                <NavLink className="dropdown-item" to="/Proudact/creat">
+                 محصول
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="dropdown-item" to="/Proudact/creat">
+                  افزودن محصول
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="dropdown-item" to="/Proudact/list">
+                  لیست محصولات
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="dropdown-item" to="/Proudact/deteails/3">
+                  جزئیات محصول
+                </NavLink>
+              </li>
+            </ul>
+          </li>
+          <li className="nav-item">
+            <span className="nav-link disabled" aria-disabled="true">
+              غیرفعال
+            </span>
+          </li>
+        </ul>
       </div>
     </nav>
   );
