@@ -1,10 +1,10 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Outlet, Link } from "react-router-dom";
 
 const Proudact = () => {
   const navigate = useNavigate();
   const [goToProduct, setGoToProduct] = useState(false);
-    useEffect(() => {
+  useEffect(() => {
     if (goToProduct) {
       navigate("deteails/3");
     }
@@ -22,7 +22,6 @@ const Proudact = () => {
       <Link to={`/Proudact/deteails/5`}>
         <button>navigate to product details-5</button>
       </Link>
-      ~
       <button
         onClick={() => {
           setGoToProduct(true);

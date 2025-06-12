@@ -19,9 +19,13 @@ import ProudactList from "./Pages/ProudactList";
 import ProductDeteails from "./Pages/ProductDeteails";
 import Layout from "./components/Layout/Layout";
 import NotFound from "./NotFount";
-import CryptoDetail from "./CryptoDetail"
+import CryptoDetail from "./CryptoDetail";
 import { Outlet } from "react-router-dom";
-
+import { store } from "./redux/store";
+import { Provider } from "react-redux";
+import { useReducer } from "react";
+import { reducer } from "@testing-library/react";
+import Counter2 from "./components/Counter2";
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -30,8 +34,8 @@ function Footer() {
   return <p>Happy coding</p>;
 }
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
+  <div className="text-balck">
+    {/* <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -46,6 +50,11 @@ root.render(
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
-    </BrowserRouter>
-  </React.StrictMode>
+    </BrowserRouter> */}
+
+    <Provider store={store}>
+      <Counter2 />
+      {/* <Header/> */}
+    </Provider>
+  </div>
 );
