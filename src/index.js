@@ -26,6 +26,9 @@ import { Provider } from "react-redux";
 import { useReducer } from "react";
 import { reducer } from "@testing-library/react";
 import Counter2 from "./components/Counter2";
+import DestinationList from "./components/DestinationList";
+import DestinationFact from "./components/DestinationFact";
+import ResetApp from "./components/ResetApp";
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -53,7 +56,13 @@ root.render(
     </BrowserRouter> */}
 
     <Provider store={store}>
+      <ResetApp/>
       <Counter2 />
+      <div className="pt-4 border text-center">
+        <h4 className="text-  ">Destination List</h4>
+        <DestinationList />
+        <DestinationFact/>
+      </div>
       {/* <Header/> */}
     </Provider>
   </div>

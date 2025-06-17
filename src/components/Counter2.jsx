@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { increment, decrement ,incrementMultiplier,decrementMultiplier} from "../redux/slice/counterSlice";
+import { increment, decrement ,incrementMultiplier,decrementMultiplier,count} from "../redux/slice/counterSlice";
 
 import { useState } from "react";
 
@@ -22,13 +22,13 @@ function Counter2() {
               placeholder="muitiPLayer"
               className="form-control"
               value={muitiPLayer}
-              onChange={(e)=>muitiPLayer(e.target.value)}
+              onChange={(e)=>setMuitiPLayer(e.target.value)}
             ></input>
           </div>
           <div className="col-4 p-1">
             <button
               className="btn btn-primary form-control"
-              onClick={() => dispatch(decrementMultiplier(muitiPLayer))}
+              onClick={() => dispatch(incrementMultiplier(muitiPLayer))}
             >
               افزودن
             </button>
