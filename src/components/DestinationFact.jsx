@@ -14,7 +14,7 @@ function DestinationFact() {
         <h4 className="text-success">{selectedDestination.name}
         </h4>
         Dayes Recommend :{selectedDestination.days}<br/>
-        fun fact:{selectedDestination.fact}
+        fact:  {"   "}{selectedDestination.fact}
 
     </div>;
   }

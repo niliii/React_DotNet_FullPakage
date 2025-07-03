@@ -1,0 +1,70 @@
+{
+  "destination": [
+    {
+      "id": "95.83567022287615",
+      "city": "dd",
+      "country": "dd",
+      "daysNeeded": 9
+    },
+    {
+      "id": "34.440252450054295",
+      "city": "بب",
+      "country": "بب",
+      "daysNeeded": 6
+    },
+    {
+      "id": "47.70441464067385",
+      "city": "test",
+      "country": "test",
+      "daysNeeded": 6
+    },
+    {
+      "id": 37.648194311077,
+      "city": "ddd",
+      "country": "fv",
+      "daysNeeded": 10
+    },
+    {
+      "id": 82.57821616219717,
+      "city": "lll",
+      "country": "fff",
+      "daysNeeded": 6
+    },
+    {
+      "id": 93.72488512092595,
+      "city": "ll",
+      "country": "vv ",
+      "daysNeeded": 8
+    },
+    {
+      "id": 72.9201591237945,
+      "city": "ggg",
+      "country": "vv",
+      "daysNeeded": 4
+    },
+    {
+      "id": 92.21574502454928,
+      "city": "dd",
+      "country": "fv",
+      "daysNeeded": 9
+    },
+    {
+      "id": 31.183918065031758,
+      "city": "ddvv",
+      "country": "cc",
+      "daysNeeded": 8
+    },
+    {
+      "id": 56.49535160434508,
+      "city": "33",
+      "country": "ccc",
+      "daysNeeded": 8
+    },
+    {
+      "id": 31.00177588042259,
+      "city": "بب",
+      "country": "ررر",
+      "daysNeeded": 1
+    }
+  ]
+}

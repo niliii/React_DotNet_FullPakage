@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { increment, decrement ,incrementMultiplier,decrementMultiplier,count} from "../redux/slice/counterSlice";
+import { increment, decrement ,incrementMultiplier,decrementMultiplier,count} from "../redux/store";
 
 import { useState } from "react";
 
