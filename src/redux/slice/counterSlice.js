@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { resetDestination } from "./destinationSlice";
+import { resetDestination } from "./destinationlice";
 import { resetReduxOPedia } from "../action/action";
 
 const initalState = { count: 5 };
@@ -24,11 +24,11 @@ export const counterSlice = createSlice({
     //   state.count = 10;
     // },
   },
-  extraReducers:(builder)=>{
-    builder.addCase(resetReduxOPedia,(state, action) => {
-      state.count =10 ;
-    },)
-  }
+  extraReducers: (builder) => {
+    builder.addCase(resetReduxOPedia, (state, action) => {
+      state.count = 10;
+    });
+  },
 });
 export const {
   increment,
